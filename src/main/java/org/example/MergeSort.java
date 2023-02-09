@@ -21,8 +21,8 @@ public class MergeSort {
         printArray(numbers);
     }
 
-    private static void mergeSort(int[] numbers) {
-        int initialLength = numbers.length;
+    private static void mergeSort(int[] wholeArray) {
+        int initialLength = wholeArray.length;
 
         if (initialLength < 2) { return; }
 
@@ -31,24 +31,45 @@ public class MergeSort {
         int[] rightHalf = new int[initialLength - midIndex];
 
         for (int i = 0; i < midIndex; i++) {
-            leftHalf[i] = numbers[i];
+            leftHalf[i] = wholeArray[i];
         }
         for (int i = midIndex; i < initialLength; i++) {
-            rightHalf[i - midIndex] = numbers[i];
+            rightHalf[i - midIndex] = wholeArray[i];
         }
 
         mergeSort(leftHalf);
         mergeSort(rightHalf);
 
-        //merge them two
+        merge(wholeArray, leftHalf, rightHalf);
     }
 
-    private static void merge(int[] initialArray, int[] leftHalf, int[] rightHalf) {
+    private static void merge(int[] wholeArray, int[] leftHalf, int[] rightHalf) {
         int leftLength = leftHalf.length;
         int rightLength = rightHalf.length;
-        int i = 0, j = 0, k = 0;
+        int l = 0, r = 0, w = 0;
 
+        while (l < leftLength && r < rightLength) {
+            if (leftHalf[l] <= rightHalf[r]) {
+                wholeArray[w] = leftHalf[l];
+                l++;
+            } else {
+                wholeArray[w] = rightHalf[r];
+                r++;
+            }
+            w++;
+        }
 
+        while (l < leftLength) {
+            wholeArray[w] = leftHalf[l];
+            l++;
+            w++;
+        }
+
+        while (r < rightLength) {
+            wholeArray[w] = rightHalf[r];
+            r++;
+            w++;
+        }
     }
 
     private static void printArray(int[] numbers) {
@@ -59,5 +80,6 @@ public class MergeSort {
                 System.out.print(numbers[i] + ", ");
             }
         }
+        System.out.println("");
     }
 }
