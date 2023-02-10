@@ -6,25 +6,27 @@ public class MergeSort {
 
     public static void main(String[] args) {
         Random random = new Random();
-        int[] numbers = new int[10];
+        int[] numbers = new int[10000000];
 
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = random.nextInt(1000000);
         }
 
         System.out.println("Before sorting:");
-        printArray(numbers);
+//        printArray(numbers);
 
         mergeSort(numbers);
 
         System.out.println("After sorting:");
-        printArray(numbers);
+//        printArray(numbers);
     }
 
     private static void mergeSort(int[] wholeArray) {
         int initialLength = wholeArray.length;
 
-        if (initialLength < 2) { return; }
+        if (initialLength < 2) {
+            return;
+        }
 
         int midIndex = initialLength / 2;
         int[] leftHalf = new int[midIndex];
@@ -74,12 +76,7 @@ public class MergeSort {
 
     private static void printArray(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
-            if (i == numbers.length - 1) {
-                System.out.print(numbers[i]);
-            } else {
-                System.out.print(numbers[i] + ", ");
-            }
+            System.out.println(numbers[i]);
         }
-        System.out.println("");
     }
 }
