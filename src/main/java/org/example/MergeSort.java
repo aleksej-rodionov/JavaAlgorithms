@@ -2,6 +2,8 @@ package org.example;
 
 import java.util.Random;
 
+import static org.example.Main.printArray;
+
 public class MergeSort {
 
     public static void main(String[] args) {
@@ -71,12 +73,6 @@ public class MergeSort {
             wholeArray[w] = rightHalf[r];
             r++;
             w++;
-        }
-    }
-
-    private static void printArray(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.println(numbers[i]);
         }
     }
 }
