@@ -7,12 +7,12 @@ import static org.example.Main.printArray;
 public class QuickSort {
 
     public static void main(String[] args) {
-//        Random random = new Random();
-//        int[] numbers = new int[10];
-//        for (int i = 0; i < numbers.length; i++) {
-//            numbers[i] = random.nextInt(1000);
-//        }
-        int[] numbers = new int[]{2, 14, 13, 17, 8, 6, 1, 19, 20, 10};
+        Random random = new Random();
+        int[] numbers = new int[1000];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(1000);
+        }
+//        int[] numbers = new int[]{2, 14, 13, 17, 8, 6, 1, 19, 20, 10};
 //        int[] numbers = new int[]{19, 20, 17};
 
         System.out.println("Before sorting:");
@@ -39,8 +39,8 @@ public class QuickSort {
     private static int partition(int[] arrayToSort, int fromIndex, int toIndex) {
         int leftIndex = fromIndex;
         int rightIndex = toIndex;
-//        int pivot = arrayToSort[fromIndex + (toIndex - fromIndex) / 2]; // here we take the middle element
-        int pivot = arrayToSort[fromIndex]; // here we take the start element
+        int pivot = arrayToSort[fromIndex + (toIndex - fromIndex) / 2]; // here we take the middle element
+//        int pivot = arrayToSort[fromIndex]; // here we take the start element
         System.out.println("pivot in partition = " + pivot);
 
         while (leftIndex <= rightIndex) {
