@@ -4,6 +4,9 @@ import java.util.Random;
 
 import static org.example.Main.printArray;
 
+/**
+ * Complexity: O(n²)
+ */
 public class InsertionSort {
 
     public static void main(String[] args) {
