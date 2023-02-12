@@ -28,7 +28,7 @@ public class SelectionSort {
 
     private static void selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            int minValueIndex = findMin(array, i);
+            int minValueIndex = findMinValueIndex(array, i);
 
             int temp = array[i];
             array[i] = array[minValueIndex];
@@ -36,7 +36,7 @@ public class SelectionSort {
         }
     }
 
-    private static int findMin(int[] array, int startIndex) {
+    private static int findMinValueIndex(int[] array, int startIndex) {
         int curMinValueIndex = startIndex;
         int curMinValue = array[startIndex];
 
